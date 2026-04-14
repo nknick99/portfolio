@@ -17,9 +17,9 @@ A high-performance, containerized portfolio website built with Next.js and cross
 
 ## 🏗 Architecture Highlights
 This isn't just a static site. The architecture reflects enterprise-grade principles:
-- **ARM64 Optimization:** The image is cross-compiled on x86 hardware (Dell Inspiron 7570) specifically for the Raspberry Pi 5’s ARM architecture using `docker buildx`.
+- **ARM64 Optimization:** The image is cross-compiled on x86 hardware specifically for the Raspberry Pi 5’s ARM architecture using `docker buildx`.
 - **Zero-Trust Security:** No ports are opened on the local network. A Cloudflare Tunnel creates a secure outbound-only connection to the edge.
-- **Port Mapping:** Hosted on internal port `3050` to avoid conflicts with other homelab services (MinIO/Portainer).
+
 
 ## 📂 Project Structure
 ```text
