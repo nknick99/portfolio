@@ -86,11 +86,11 @@ export function HeroSection() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground md:text-xl">
-            Building secure, scalable systems at the intersection of{" "}
-            <span className="font-medium text-foreground">cloud infrastructure</span>,{" "}
-            <span className="font-medium text-foreground">security</span>, and{" "}
-            <span className="font-medium text-foreground">research</span>.
-            Currently pursuing my MSCS at USC while leading data systems projects.
+            Building {" "}
+            <span className="font-medium text-foreground">backend systems</span>,{" "}
+            <span className="font-medium text-foreground">full-stack applications</span>, and{" "}
+            <span className="font-medium text-foreground">cloud infrastructure</span> that solve real problems. 
+             Currently pursuing my MSCS at USC and developing research platforms.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -132,7 +132,7 @@ export function HeroSection() {
               <Mail className="h-5 w-5" />
             </a>
             <a
-              href="https://drive.google.com/file/d/1KwDvOnQpNCrqRMJAAFDQU7W2QGsXUsve/view?usp=sharing"
+              href="https://drive.google.com/file/d/1hL8gGigZfIz_dytGitAYVKFSxq96-9pN/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Resume"

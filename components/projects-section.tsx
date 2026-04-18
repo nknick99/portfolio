@@ -30,7 +30,7 @@ const mainProjects: Project[] = [
   {
     title: "USC - JnJ MedTech Portal",
     icon: Database,
-    problem: "Researchers needed secure medical data handling for wound classification research.",
+    problem: "Surgeons needed secure medical data handling for wound classification.",
     built: "Next.js API routes + Azure Blob Storage with SAS tokens + GitHub Actions CI/CD.",
     impact: "Enabled surgeons to securely access and classify clinical images for J&J MedTech research.",
     tags: ["Next.js", "Azure", "GitHub Actions"],
@@ -46,10 +46,10 @@ const mainProjects: Project[] = [
   {
     title: "Home Lab Infrastructure",
     icon: Server,
-    problem: "Wanted private cloud storage without relying on third-party services.",
-    built: "MinIO + Docker + Cloudflare Tunnels on Raspberry Pi 5. Portainer for container management.",
-    impact: "Self-hosted S3-compatible storage with secure remote access.",
-    tags: ["MinIO", "Docker", "Cloudflare", "Raspberry Pi"],
+    problem: "Built private cloud storage to better understand how real cloud systems work underneath.",
+    built: "Deployed MinIO and Portainer with Docker and Cloudflare Tunnels on Raspberry Pi 5.",
+    impact: "Created a self-hosted S3-compatible platform with secure remote access and hands-on infrastructure experience.",
+    tags: ["MinIO", "Portainer", "Docker", "Cloudflare", "Raspberry Pi"],
     liveServices: [
       { name: "MinIO", url: "https://s3.nikhilkudache.dev" },
       { name: "Portainer", url: "https://docker.nikhilkudache.dev" },
@@ -110,7 +110,7 @@ export function ProjectsSection() {
               <div className="flex flex-1 flex-col p-4">
                 <div className="mb-4 space-y-2.5 flex-1">
                   <div>
-                     <p className="font-mono text-xs text-primary mb-0.5">Problem</p>
+                    <p className="font-mono text-xs text-primary mb-0.5">Problem</p>
                     <p className="text-xs text-muted-foreground leading-relaxed">{project.problem}</p>
                   </div>
                   <div>

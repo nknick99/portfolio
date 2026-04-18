@@ -31,7 +31,7 @@ const experiences: Experience[] = [
     summary: "Building backend services for clinical research data platform",
     achievements: [
       {
-        problem: "Researchers needed secure medical data handling for wound classification research.",
+        problem: "Surgeons needed secure medical data handling for wound classification.",
         built: "Next.js API routes + Azure Blob Storage with SAS tokens + GitHub Actions CI/CD.",
         impact: "Enabled surgeons to securely upload and classify clinical images.",
       },
@@ -63,7 +63,7 @@ const experiences: Experience[] = [
     summary: "Built security automation saving 20 hrs/week for the team",
     achievements: [
       {
-        problem: "Manual Jira ticket remediation was eating 20+ hours/week.",
+        problem: "Manual Jira ticket remediation was costing 20+ hours/week.",
         built: "Python module integrating Jira + Prisma Cloud APIs for auto-remediation.",
         impact: "300+ tickets processed autonomously. 20 hrs/week saved. Applause Award.",
       },

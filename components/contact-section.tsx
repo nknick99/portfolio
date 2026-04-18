@@ -18,7 +18,7 @@ export function ContactSection() {
             Let{"'"}s Build Something Together
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-pretty leading-relaxed text-muted-foreground">
-            I{"'"}m currently looking for SOftware Engineer Intern opportunities where I can contribute to building scalable systems and infrastructure. My inbox is always open.
+            I{"'"}m currently looking for Software Engineer Intern opportunities where I can contribute to building scalable systems and infrastructure. My inbox is always open.
           </p>
         </div>
 

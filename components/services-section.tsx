@@ -7,7 +7,7 @@ const reasons = [
     icon: Briefcase,
     title: "Real Experience",
     description:
-      "2.5 years at Deloitte building production systems. Not just coursework.",
+      "2.5 years at Deloitte building production systems.",
   },
   {
     icon: Wrench,
