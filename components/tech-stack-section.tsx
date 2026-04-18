@@ -7,25 +7,25 @@ const categories = [
   {
     icon: Code2,
     title: "Languages",
-    items: ["Python", "Java", "C++", "JavaScript", "SQL", "Bash", "HTML", "CSS"],
+    items: ["Python", "Java", "C++", "JavaScript", "Bash", "SQL", "HTML", "CSS"],
     color: "text-blue-500",
   },
   {
     icon: Globe,
     title: "Web & Databases",
-    items: ["React.js", "Node.js", "GraphQL", "PostgreSQL", "MySQL", "MongoDB", "REST APIs"],
+    items: ["React.js", "Node.js", "Next.js", "PostgreSQL", "MySQL", "MongoDB", "REST APIs"],
     color: "text-green-500",
   },
   {
     icon: Cloud,
     title: "Infrastructure & Cloud",
-    items: ["Docker", "Kubernetes", "Terraform", "AWS", "Azure Blob Storage", "EC2", "S3", "ECS", "Lambda"],
+    items: ["Docker", "Kubernetes", "Terraform", "AWS", "Azure", "GCP"],
     color: "text-orange-500",
   },
   {
     icon: ShieldCheck,
     title: "Networking & Security",
-    items: ["Checkov", "Palo Alto Panorama", "Prisma Cloud"],
+    items: ["Palo Alto Panorama", "Prisma (Cortex) Cloud", "Checkov"],
     color: "text-red-500",
   },
   {
@@ -38,21 +38,18 @@ const categories = [
 
 export function TechStackSection() {
   return (
-    <section id="skills" className="relative px-6 py-32">
+    <section id="skills" className="relative px-6 py-20">
       {/* Decorative accent line */}
       <div className="absolute left-1/2 top-0 h-px w-48 -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
       
       <div className="mx-auto max-w-6xl">
-        <div className="mb-16 text-center">
+        <div className="mb-12 text-center">
           <p className="mb-2 font-mono text-sm uppercase tracking-widest text-primary">
-            Tech Stack
+            Skills
           </p>
           <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-            Tools I Work With
+            Tech Stack
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            From low-level systems to cloud infrastructure, these are the technologies I use.
-          </p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

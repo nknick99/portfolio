@@ -4,16 +4,15 @@ import { ShieldCheck, Briefcase, Zap, Terminal } from "lucide-react"
 import { useEffect, useState } from "react"
 
 const stats = [
-  { icon: ShieldCheck, label: "High & Critical Vulnerabilities Blocked", value: "100", suffix: "%" },
+  { icon: ShieldCheck, label: "High-Severity Vulnerabilities Prevented", value: "90", suffix: "+" },
   { icon: Briefcase, label: "Years Enterprise Exp.", value: "2.5", suffix: "+" },
   { icon: Zap, label: "Manual Effort Saved", value: "20", suffix: " hrs/wk" },
 ]
 
 const currentlyBuilding = [
-  "Private Cloud Infrastructure on Raspberry Pi 5",
-  "Clinical Data Pipeline for J&J MedTech",
-  "Reducing NX domain queries on root servers at USC ISI",
-  "Building Challenge-Based-Refective-Learning initiative with Verizon",
+  "Clinical Backend Portal at USC HTI Lab",
+  "DNS Resolver Testbed at USC ISI",
+  "Home Lab with MinIO + Portainer",
 ]
 
 export function DevStatsSection() {
@@ -45,11 +44,11 @@ export function DevStatsSection() {
   }, [displayedText, isDeleting, buildingIndex])
 
   return (
-    <section className="relative px-6 py-24">
+    <section className="relative px-6 py-16">
       <div className="mx-auto max-w-6xl">
         {/* Currently Building Ticker */}
         <div className="mb-12 overflow-hidden rounded-lg border border-border bg-card/50 backdrop-blur-sm">
-           <div className="flex flex-col gap-2 px-4 py-3 sm:flex-row sm:items-center sm:gap-3 md:px-6">
+          <div className="flex flex-col gap-2 px-4 py-3 sm:flex-row sm:items-center sm:gap-3 md:px-6">
             <div className="flex flex-shrink-0 items-center gap-2 rounded-md bg-green-500/10 px-2.5 py-1 self-start">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />

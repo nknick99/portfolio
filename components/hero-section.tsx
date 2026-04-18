@@ -4,16 +4,12 @@ import { Github, Linkedin, Mail, FileText, ArrowDown, MapPin } from "lucide-reac
 import { Button } from "@/components/ui/button"
 import { useEffect, useState } from "react"
 
-const codeSnippet = `nikhil_kudache = {
-    "target_role": "Software Development Engineer",
+const codeSnippet = `nikhil = {
+    "role": "Software Engineer",
     "education": "MSCS @ USC",
-    "industry_exp": "2.5+ Years",
-    "tech_stack": {
-        "languages": ["Python", "C++", "Java", "JavaScript"],
-        "full_stack": ["Node.js", "React", "REST APIs"],
-        "data_cloud": ["SQL", "AWS", "Azure", "Docker"]
-    },
-    "availability": "Summer 2026 Internships"
+    "experience": "2.5 yrs @ Deloitte",
+    "strengths": ["Systems", "Backend", "Cloud"],
+    "seeking": "Summer 2026 Internships"
 }`
 
 export function HeroSection() {
@@ -60,8 +56,8 @@ export function HeroSection() {
             <div className="h-3 w-3 rounded-full bg-green-500/80" />
             <span className="ml-2 font-mono text-xs text-muted-foreground">about.py</span>
           </div>
-           <div className="overflow-hidden">
-            <pre className="whitespace-pre-wrap break-all p-4 font-mono text-[10px] leading-relaxed text-foreground sm:whitespace-pre sm:break-normal md:text-xs">
+          <div className="overflow-hidden">
+              <pre className="whitespace-pre-wrap break-all p-4 font-mono text-xs leading-relaxed text-foreground sm:whitespace-pre sm:break-normal sm:text-sm">
               <code className="block">
                 {displayedCode}
                 <span className={`${showCursor ? "opacity-100" : "opacity-0"} text-primary`}>|</span>

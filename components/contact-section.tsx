@@ -5,10 +5,10 @@ import { Button } from "@/components/ui/button"
 
 export function ContactSection() {
   return (
-    <section id="contact" className="relative px-6 py-32">
+    <section id="contact" className="relative px-6 py-20">
       {/* Decorative accent line */}
       <div className="absolute left-1/2 top-0 h-px w-48 -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-      
+
       <div className="mx-auto max-w-4xl">
         <div className="mb-16 text-center">
           <p className="mb-2 font-mono text-sm uppercase tracking-widest text-primary">
@@ -18,7 +18,7 @@ export function ContactSection() {
             Let{"'"}s Build Something Together
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-pretty leading-relaxed text-muted-foreground">
-            I{"'"}m currently looking for SDE opportunities where I can contribute to building scalable systems and infrastructure. My inbox is always open.
+            I{"'"}m currently looking for SOftware Engineer Intern opportunities where I can contribute to building scalable systems and infrastructure. My inbox is always open.
           </p>
         </div>
 
@@ -85,7 +85,7 @@ export function ContactSection() {
                 <span className="text-xs text-muted-foreground">View Profile</span>
               </a>
               <a
-                href="https://www.linkedin.com/in/nikhilkudache"
+                href="https://www.linkedin.com/in/nikhilkudache/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 rounded-lg border border-border p-4 transition-all hover:border-primary/40 hover:bg-secondary"

@@ -5,21 +5,18 @@ import { Award, GraduationCap, MapPin, Calendar } from "lucide-react"
 
 export function EducationSection() {
   return (
-    <section id="education" className="relative px-6 py-32">
+    <section id="education" className="relative px-6 py-20">
       {/* Decorative accent line */}
       <div className="absolute left-1/2 top-0 h-px w-48 -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-
+      
       <div className="mx-auto max-w-6xl">
-        <div className="mb-16 text-center">
+        <div className="mb-12 text-center">
           <p className="mb-2 font-mono text-sm uppercase tracking-widest text-primary">
-            Education {"&"} Honors
+            Education
           </p>
           <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-            Academic Background
+            Background
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            My formal education spanning computer science fundamentals to advanced systems.
-          </p>
         </div>
 
         {/* Education */}
@@ -131,7 +128,7 @@ export function EducationSection() {
                   </span>
                 </div>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Spearheaded Jira Automation Module initiative, leading to a 30% reduction in manual task assignments, resulting in 20 hours saved per week for the cyber infrastructure team.
+                  Built Jira automation module that saved 20 hours/week for the team.
                 </p>
               </div>
             </div>

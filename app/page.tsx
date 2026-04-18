@@ -6,7 +6,7 @@ import { TechStackSection } from "@/components/tech-stack-section"
 import { ProjectsSection } from "@/components/projects-section"
 import { ExperienceSection } from "@/components/experience-section"
 import { EducationSection } from "@/components/education-section"
-import { DevSetupSection } from "@/components/dev-setup-section"
+// import { DevSetupSection } from "@/components/dev-setup-section"
 import { InterestsSection } from "@/components/interests-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
@@ -23,7 +23,7 @@ export default function Page() {
         <ProjectsSection />
         <ExperienceSection />
         <EducationSection />
-        <DevSetupSection />
+        {/* <DevSetupSection /> */}
         <InterestsSection />
         <ContactSection />
       </main>

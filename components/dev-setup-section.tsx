@@ -42,7 +42,7 @@ const asciiArt = `
 
 export function DevSetupSection() {
   return (
-    <section id="setup" className="relative px-6 py-32">
+    <section id="setup" className="relative px-6 py-20">
       <div className="absolute left-1/2 top-0 h-px w-48 -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
       
       <div className="mx-auto max-w-6xl">
@@ -122,10 +122,10 @@ export function DevSetupSection() {
               <span className="text-foreground">neofetch</span>
             </div>
             <div className="mt-3 grid gap-1 text-xs text-muted-foreground md:grid-cols-2">
-              <div><span className="text-primary">OS:</span> Ubuntu 22.04</div>
-              {/* <div><span className="text-primary">Shell:</span> zsh 5.9</div> */}
+              <div><span className="text-primary">OS:</span> macOS Sonoma / Ubuntu 22.04</div>
+              <div><span className="text-primary">Shell:</span> zsh 5.9</div>
               <div><span className="text-primary">Editor:</span> VS Code</div>
-              {/* <div><span className="text-primary">Theme:</span> One Dark Pro</div> */}
+              <div><span className="text-primary">Theme:</span> One Dark Pro</div>
             </div>
           </div>
         </div>
