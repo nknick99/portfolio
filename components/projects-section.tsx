@@ -28,7 +28,7 @@ type AdditionalProject = {
 
 const mainProjects: Project[] = [
   {
-    title: "USC - JnJ MedTech Portal",
+    title: "USC - J&J MedTech Portal",
     icon: Database,
     problem: "Surgeons needed secure medical data handling for wound classification.",
     built: "Next.js API routes + Azure Blob Storage with SAS tokens + GitHub Actions CI/CD.",
@@ -40,7 +40,7 @@ const mainProjects: Project[] = [
     icon: Shield,
     problem: "Manual Jira ticket remediation was eating 20+ hours/week.",
     built: "Python module integrating Jira + Prisma Cloud APIs for auto-remediation.",
-    impact: "90+ High-Severity issues prevented pre-production. 20 hrs/week saved.",
+    impact: "300+ security alerts auto-remediated. 20 hrs/week of manual effort eliminated.",
     tags: ["Python", "Jira API", "Prisma Cloud", "Checkov"],
   },
   {

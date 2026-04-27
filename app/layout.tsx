@@ -13,7 +13,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Nikhil Kudache | Software Engineer",
   description:
-    "MSCS at USC | Former Deloitte Analyst | Full-Stack & Systems Engineer. Building scalable systems and intelligence.",
+    "Software Engineer — USC MSCS student with 2.5 years at Deloitte in cloud infrastructure and security automation. Backend, cloud, and systems engineering. Open to Summer 2026 internships.",
 }
 
 export default function RootLayout({

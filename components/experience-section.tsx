@@ -33,7 +33,7 @@ const experiences: Experience[] = [
       {
         problem: "Surgeons needed secure medical data handling for wound classification.",
         built: "Next.js API routes + Azure Blob Storage with SAS tokens + GitHub Actions CI/CD.",
-        impact: "Enabled surgeons to securely upload and classify clinical images.",
+        impact: "Enabled surgeons to securely classify clinical images.",
       },
     ],
     tags: ["Next.js", "Azure", "GitHub Actions"],

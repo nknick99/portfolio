@@ -128,7 +128,7 @@ export function EducationSection() {
                   </span>
                 </div>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Built Jira automation module that saved 20 hours/week for the team.
+                  Recognition for initiative that eliminated 20 hrs/week of manual work across the cyber infrastructure team.
                 </p>
               </div>
             </div>

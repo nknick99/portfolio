@@ -5,7 +5,7 @@ import { Briefcase, Wrench, CheckCircle } from "lucide-react"
 const reasons = [
   {
     icon: Briefcase,
-    title: "Real Experience",
+    title: "Industry Depth",
     description:
       "2.5 years at Deloitte building production systems.",
   },
@@ -25,7 +25,7 @@ const reasons = [
 
 export function ServicesSection() {
   return (
-    <section id="services" className="relative px-6 py-20">
+    <section id="whyme" className="relative px-6 py-20">
       <div className="absolute left-1/2 top-0 h-px w-48 -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
 
       <div className="mx-auto max-w-4xl">
