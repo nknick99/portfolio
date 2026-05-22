@@ -248,7 +248,7 @@ export function Desktop() {
                       <h1 className="text-4xl font-bold text-white mb-2">Nikhil Kudache</h1>
                       <h2 className="text-xl text-blue-400 mb-4">Software Engineer & Systems Architect</h2>
                       <p className="text-zinc-300 leading-relaxed max-w-2xl">
-                        I am a software engineer specializing in scalable backend systems, cloud infrastructure, and full-stack applications. With a foundation built during my MSCS at the University of Southern California (Aug 2025 - May 2027) and practical experience engineering high-impact solutions at Deloitte (Jan 2023 - Jul 2025), I bridge the gap between complex architectural design and intuitive user experiences.
+                        I am a software engineer specializing in scalable backend systems, cloud infrastructure, and full-stack applications. Drawing from practical experience engineering high-impact cloud solutions at Deloitte (Jan 2023 - Jul 2025) and currently expanding my foundation through an MSCS at the University of Southern California (Aug 2025 - May 2027), I bridge the gap between complex architectural design and intuitive user experiences.
                       </p>
                     </div>
                   </div>
@@ -269,7 +269,7 @@ export function Desktop() {
                         <div className="bg-white/5 rounded-xl p-4 border border-white/5">
                           <h4 className="text-white font-bold">Cloud Infrastructure Analyst</h4>
                           <p className="text-xs text-blue-400 mb-2">Deloitte • Jan 2023 - Jul 2025</p>
-                          <p className="text-sm text-zinc-400">Developed enterprise backend systems using Python and Java. Built microservices handling millions of transactions, deployed on AWS.</p>
+                          <p className="text-sm text-zinc-400">Engineered Python automation tools connecting Prisma Cloud and Jira, clearing backlogs to save 20 hours/week. Developed reusable Terraform modules for AWS networking and integrated Checkov security scanning into Jenkins CI/CD pipelines.</p>
                         </div>
                       </div>
                     </div>
