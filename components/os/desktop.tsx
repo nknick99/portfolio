@@ -208,10 +208,10 @@ export function Desktop() {
                   </div>
                   <h2 className="text-xl font-bold text-white mb-1">Nikhil OS</h2>
                   <p className="text-xs text-white/50 mb-4">Version 1.0.0</p>
-                  <div className="text-sm text-zinc-300 space-y-2">
-                    <p><strong>Software Engineer</strong></p>
-                    <p>Strengths: Backend Systems, Cloud Infrastructure, Full-Stack Applications.</p>
-                  </div>
+                    <div className="text-sm text-zinc-300 space-y-2">
+                      <p><strong>Cloud Infrastructure Analyst</strong></p>
+                      <p>Strengths: Backend Systems, Cloud Infrastructure, Full-Stack Applications.</p>
+                    </div>
                   <div className="flex gap-2 mt-6">
                     <button 
                       onClick={() => setIsAboutExpanded(true)}
@@ -245,9 +245,9 @@ export function Desktop() {
                     </div>
                     <div>
                       <h1 className="text-4xl font-bold text-white mb-2">Nikhil Kudache</h1>
-                      <h2 className="text-xl text-blue-400 mb-4">Software Engineer & Systems Architect</h2>
+                      <h2 className="text-xl text-blue-400 mb-4">Cloud Infrastructure Analyst & Systems Architect</h2>
                       <p className="text-zinc-300 leading-relaxed max-w-2xl">
-                        I am a software engineer specializing in scalable backend systems, cloud infrastructure, and full-stack applications. With a foundation built during my MSCS at the University of Southern California and practical experience engineering high-impact solutions at Deloitte, I bridge the gap between complex architectural design and intuitive user experiences.
+                        I am a Cloud Infrastructure Analyst specializing in scalable backend systems, cloud infrastructure, and full-stack applications. With a foundation built during my MSCS at the University of Southern California (Aug 2024 - May 2026) and practical experience engineering high-impact solutions at Deloitte (Jan 2023 - Jul 2025), I bridge the gap between complex architectural design and intuitive user experiences.
                       </p>
                     </div>
                   </div>
@@ -262,12 +262,12 @@ export function Desktop() {
                       <div className="space-y-4">
                         <div className="bg-white/5 rounded-xl p-4 border border-white/5">
                           <h4 className="text-white font-bold">Software Engineer (Student)</h4>
-                          <p className="text-xs text-blue-400 mb-2">USC Human Technology Interaction Lab • Oct 2025 - Present</p>
+                          <p className="text-xs text-blue-400 mb-2">USC Human Technology Interaction Lab • Aug 2025 - Present</p>
                           <p className="text-sm text-zinc-400">Architected backend systems, secure APIs, and database structures for medical digital twin and transdisciplinary learning platforms.</p>
                         </div>
                         <div className="bg-white/5 rounded-xl p-4 border border-white/5">
-                          <h4 className="text-white font-bold">Software Engineer</h4>
-                          <p className="text-xs text-blue-400 mb-2">Deloitte USI • 2021 - 2024</p>
+                          <h4 className="text-white font-bold">Cloud Infrastructure Analyst</h4>
+                          <p className="text-xs text-blue-400 mb-2">Deloitte • Jan 2023 - Jul 2025</p>
                           <p className="text-sm text-zinc-400">Developed enterprise backend systems using Python and Java. Built microservices handling millions of transactions, deployed on AWS.</p>
                         </div>
                       </div>
@@ -355,7 +355,7 @@ export function Desktop() {
       </div>
 
       {/* Top Menu Bar */}
-      <div className="absolute top-0 left-0 right-0 h-7 bg-black/40 backdrop-blur-md border-b border-white/10 z-[10000] flex items-center justify-between px-4 select-none">
+      <div className="absolute top-0 left-0 right-0 h-7 bg-black/40 backdrop-blur-md border-b border-white/10 z-[30000] flex items-center justify-between px-4 select-none">
         <div className="flex items-center text-xs font-medium text-white/90">
           <div 
             className="relative px-3 py-1 cursor-default hover:bg-white/20 rounded transition-colors"
@@ -390,9 +390,9 @@ export function Desktop() {
               {activeMenu === 'file' && (
                 <motion.div 
                   initial={{ opacity: 0, y: -5 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -5 }}
-                  className="absolute top-full left-0 mt-1 w-48 bg-zinc-800/95 backdrop-blur-md border border-white/10 rounded-md shadow-2xl py-1"
+                  className="absolute top-full left-0 mt-1 w-48 bg-zinc-800/95 backdrop-blur-md border border-white/10 rounded-md shadow-2xl py-1 z-[15000]"
                 >
-                  <div className="px-3 py-1 hover:bg-blue-500 cursor-default" onClick={() => { showToast("Downloading Resume..."); setActiveMenu(null); }}>Download Resume</div>
+                  <a href="/resume.pdf" download="Nikhil_Kudache_Resume.pdf" className="block px-3 py-1 hover:bg-blue-500 cursor-default" onClick={() => { setActiveMenu(null); }}>Download Resume</a>
                   <div className="px-3 py-1 hover:bg-blue-500 cursor-default" onClick={() => { if(activeApp) handleClose(activeApp); setActiveMenu(null); }}>Close Window</div>
                 </motion.div>
               )}
