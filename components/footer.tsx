@@ -1,6 +1,7 @@
 "use client"
 
 import { Github, Linkedin, Mail } from "lucide-react"
+import { motion } from "framer-motion"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -17,7 +18,9 @@ export function Footer() {
           </div>
 
           <div className="flex items-center gap-4">
-            <a
+            <motion.a
+              whileHover={{ scale: 1.1, y: -2 }}
+              transition={{ type: "spring", stiffness: 450, damping: 10 }}
               href="https://github.com/nknick99"
               target="_blank"
               rel="noopener noreferrer"
@@ -25,8 +28,10 @@ export function Footer() {
               className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
             >
               <Github className="h-5 w-5" />
-            </a>
-            <a
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.1, y: -2 }}
+              transition={{ type: "spring", stiffness: 450, damping: 10 }}
               href="https://www.linkedin.com/in/nikhilkudache/"
               target="_blank"
               rel="noopener noreferrer"
@@ -34,22 +39,24 @@ export function Footer() {
               className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
             >
               <Linkedin className="h-5 w-5" />
-            </a>
-            <a
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.1, y: -2 }}
+              transition={{ type: "spring", stiffness: 450, damping: 10 }}
               href="mailto:kudache@usc.edu"
               aria-label="Email"
               className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
             >
               <Mail className="h-5 w-5" />
-            </a>
+            </motion.a>
           </div>
         </div>
 
         <div className="mt-8 border-t border-border pt-8 text-center">
-          <p className="font-mono text-xs text-muted-foreground">
+          <p className="font-mono text-[10px] text-muted-foreground">
             Designed {"&"} built with Next.js, Tailwind CSS, and a slightly overheated Raspberry Pi 5.
           </p>
-          <p className="mt-2 font-mono text-xs text-muted-foreground">
+          <p className="mt-2 font-mono text-[10px] text-muted-foreground">
             {currentYear} Nikhil Kudache. All rights reserved.
           </p>
         </div>

@@ -1,7 +1,9 @@
 "use client"
 
 import { ShieldCheck, Briefcase, Zap, Terminal } from "lucide-react"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
+import { motion, useMotionValue, useSpring, useInView } from "framer-motion"
+import { staggerContainer, fadeIn } from "@/lib/animations"
 
 const stats = [
   { icon: ShieldCheck, label: "High-Severity Vulnerabilities Prevented", value: "90", suffix: "+" },
@@ -14,6 +16,36 @@ const currentlyBuilding = [
   "DNS Resolver Testbed at USC ISI",
   "Home Lab with MinIO + Portainer",
 ]
+
+function Counter({ value, isDecimal = false }: { value: number; isDecimal?: boolean }) {
+  const ref = useRef<HTMLSpanElement>(null)
+  const motionValue = useMotionValue(0)
+  const springValue = useSpring(motionValue, {
+    damping: 30,
+    stiffness: 80,
+  })
+  const isInView = useInView(ref, { once: true, margin: "-50px" })
+
+  useEffect(() => {
+    if (isInView) {
+      motionValue.set(value)
+    }
+  }, [motionValue, value, isInView])
+
+  useEffect(() => {
+    return springValue.on("change", (latest) => {
+      if (ref.current) {
+        if (isDecimal) {
+          ref.current.textContent = (Math.round(latest * 10) / 10).toFixed(1)
+        } else {
+          ref.current.textContent = Math.round(latest).toString()
+        }
+      }
+    })
+  }, [springValue, isDecimal])
+
+  return <span ref={ref}>0</span>
+}
 
 export function DevStatsSection() {
   const [buildingIndex, setBuildingIndex] = useState(0)
@@ -44,10 +76,16 @@ export function DevStatsSection() {
   }, [displayedText, isDeleting, buildingIndex])
 
   return (
-    <section className="relative px-6 py-16">
+    <section className="relative px-6 py-16 overflow-hidden">
       <div className="mx-auto max-w-6xl">
         {/* Currently Building Ticker */}
-        <div className="mb-12 overflow-hidden rounded-lg border border-border bg-card/50 backdrop-blur-sm">
+        <motion.div 
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-12 overflow-hidden rounded-lg border border-border bg-card/50 backdrop-blur-sm"
+        >
           <div className="flex flex-col gap-2 px-4 py-3 sm:flex-row sm:items-center sm:gap-3 md:px-6">
             <div className="flex flex-shrink-0 items-center gap-2 rounded-md bg-green-500/10 px-2.5 py-1 self-start">
               <span className="relative flex h-2 w-2">
@@ -62,25 +100,37 @@ export function DevStatsSection() {
               <span className="ml-0.5 flex-shrink-0 animate-pulse text-primary">_</span>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+        <motion.div 
+          className="grid grid-cols-1 gap-4 md:grid-cols-3"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {stats.map((stat) => (
-            <div
+            <motion.div
               key={stat.label}
-              className="group relative overflow-hidden rounded-xl border border-border bg-card p-4 transition-all hover:border-primary/30 md:p-6"
+              variants={fadeIn}
+              whileHover={{ y: -4, transition: { type: "spring", stiffness: 400, damping: 10 } }}
+              className="group relative overflow-hidden rounded-xl border border-border bg-card p-4 transition-all hover:border-primary/30 md:p-6 shadow-sm"
             >
               <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary transition-transform group-hover:scale-110">
                 <stat.icon className="h-5 w-5" />
               </div>
               <div className="font-mono text-2xl font-bold text-foreground md:text-3xl">
-                {stat.value}{stat.suffix}
+                <Counter 
+                  value={parseFloat(stat.value)} 
+                  isDecimal={stat.value.includes(".")}
+                />
+                {stat.suffix}
               </div>
               <p className="mt-1 text-xs text-muted-foreground md:text-sm">{stat.label}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

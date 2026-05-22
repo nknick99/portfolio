@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  portfolio-os:
+    image: nknick99/portfolio:v2.0-os
+    container_name: nikhil-portfolio-os
+    restart: always
+    ports:
+      - "3001:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    networks:
+      - web
+
+networks:
+  web:
+    external: false

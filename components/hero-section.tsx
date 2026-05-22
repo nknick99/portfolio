@@ -3,6 +3,9 @@
 import { Github, Linkedin, Mail, FileText, ArrowDown, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useEffect, useState } from "react"
+import { motion, useMotionTemplate, useMotionValue } from "framer-motion"
+import { staggerContainer, fadeIn, popIn } from "@/lib/animations"
+import Image from "next/image"
 
 const codeSnippet = `nikhil = {
     "role": "Software Engineer",
@@ -15,6 +18,9 @@ const codeSnippet = `nikhil = {
 export function HeroSection() {
   const [displayedCode, setDisplayedCode] = useState("")
   const [showCursor, setShowCursor] = useState(true)
+  
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
 
   useEffect(() => {
     let i = 0
@@ -36,120 +42,196 @@ export function HeroSection() {
     return () => clearInterval(cursorInterval)
   }, [])
 
+  function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
+    const { left, top, width, height } = currentTarget.getBoundingClientRect()
+    mouseX.set((clientX - left) / width - 0.5)
+    mouseY.set((clientY - top) / height - 0.5)
+  }
+
   return (
     <section
       id="about"
-      className="relative flex min-h-screen flex-col items-center justify-center px-6 pt-20"
+      className="relative flex min-h-screen flex-col items-center justify-center px-6 pt-20 overflow-hidden"
+      onMouseMove={handleMouseMove}
     >
       {/* Animated gradient orb */}
-      <div className="pointer-events-none absolute left-1/2 top-1/3 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 blur-3xl" />
+      <motion.div 
+        className="pointer-events-none absolute left-1/2 top-1/3 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 blur-[100px]"
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.5, 0.8, 0.5],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
       
-      {/* Subtle grid background */}
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20" />
+      {/* Subtle grid background with Parallax */}
+      <motion.div 
+        className="pointer-events-none absolute inset-[-10%] bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20"
+        style={{
+          x: useMotionTemplate`calc(${mouseX} * -30px)`,
+          y: useMotionTemplate`calc(${mouseY} * -30px)`,
+        }}
+      />
 
-      <div className="relative z-10 mx-auto max-w-4xl">
-        {/* Terminal-style code block */}
-        <div className="mx-auto mb-10 w-full max-w-2xl overflow-hidden rounded-lg border border-border bg-card/80 backdrop-blur-sm">
-          <div className="flex items-center gap-2 border-b border-border bg-secondary/50 px-4 py-2">
-            <div className="h-3 w-3 rounded-full bg-red-500/80" />
-            <div className="h-3 w-3 rounded-full bg-yellow-500/80" />
-            <div className="h-3 w-3 rounded-full bg-green-500/80" />
-            <span className="ml-2 font-mono text-xs text-muted-foreground">about.py</span>
-          </div>
-          <div className="overflow-hidden">
-              <pre className="whitespace-pre-wrap break-all p-4 font-mono text-xs leading-relaxed text-foreground sm:whitespace-pre sm:break-normal sm:text-sm">
-              <code className="block">
-                {displayedCode}
-                <span className={`${showCursor ? "opacity-100" : "opacity-0"} text-primary`}>|</span>
-              </code>
-            </pre>
-          </div>
-        </div>
+      <motion.div 
+        className="relative z-10 mx-auto max-w-6xl w-full mt-10 md:mt-0"
+        variants={staggerContainer}
+        initial="hidden"
+        animate="show"
+      >
+        <div className="grid lg:grid-cols-5 gap-12 items-center">
+          
+          {/* Left Column: Text & Terminal */}
+          <div className="lg:col-span-3 flex flex-col items-center lg:items-start text-center lg:text-left">
+            <motion.div variants={popIn} className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card/80 px-4 py-1.5 text-sm text-muted-foreground backdrop-blur-sm shadow-sm">
+              <MapPin className="h-3.5 w-3.5 text-primary" />
+              Los Angeles, CA
+              <span className="mx-2 h-4 w-px bg-border" />
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
+              </span>
+              Open to SDE roles
+            </motion.div>
 
-        <div className="text-center">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card/80 px-4 py-1.5 text-sm text-muted-foreground backdrop-blur-sm">
-            <MapPin className="h-3.5 w-3.5 text-primary" />
-            Los Angeles, CA
-            <span className="mx-2 h-4 w-px bg-border" />
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
-            </span>
-            Open to SDE roles
-          </div>
+            <motion.h1 variants={fadeIn} className="text-balance text-4xl font-bold leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl">
+              Hi, I{"'"}m{" "}
+              <span className="bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent">
+                Nikhil Kudache
+              </span>
+            </motion.h1>
 
-          <h1 className="text-balance text-4xl font-bold leading-tight tracking-tight text-foreground md:text-6xl lg:text-7xl">
-            Hi, I{"'"}m{" "}
-            <span className="bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent">
-              Nikhil Kudache
-            </span>
-          </h1>
+            <motion.p variants={fadeIn} className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground md:text-xl">
+              Building {" "}
+              <span className="font-medium text-foreground">backend systems</span>,{" "}
+              <span className="font-medium text-foreground">full-stack applications</span>, and{" "}
+              <span className="font-medium text-foreground">cloud infrastructure</span> that solve real problems.
+            </motion.p>
 
-          <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground md:text-xl">
-            Building {" "}
-            <span className="font-medium text-foreground">backend systems</span>,{" "}
-            <span className="font-medium text-foreground">full-stack applications</span>, and{" "}
-            <span className="font-medium text-foreground">cloud infrastructure</span> that solve real problems. 
-             Currently pursuing my MSCS at USC and developing research platforms.
-          </p>
+            <motion.div variants={fadeIn} className="mt-8 mb-8 w-full max-w-xl overflow-hidden rounded-lg border border-border bg-card/80 backdrop-blur-sm shadow-xl">
+              <div className="flex items-center gap-2 border-b border-border bg-secondary/50 px-4 py-2">
+                <div className="h-3 w-3 rounded-full bg-red-500/80" />
+                <div className="h-3 w-3 rounded-full bg-yellow-500/80" />
+                <div className="h-3 w-3 rounded-full bg-green-500/80" />
+                <span className="ml-2 font-mono text-[10px] text-muted-foreground">about.py</span>
+              </div>
+              <div className="overflow-hidden">
+                <pre className="whitespace-pre-wrap break-all p-4 font-mono text-[10px] sm:text-xs leading-relaxed text-foreground sm:whitespace-pre sm:break-normal">
+                  <code className="block">
+                    {displayedCode}
+                    <span className={`${showCursor ? "opacity-100" : "opacity-0"} text-primary`}>|</span>
+                  </code>
+                </pre>
+              </div>
+            </motion.div>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <Button asChild size="lg" className="group">
-              <a href="#projects">
-                View My Work
-                <ArrowDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-0.5" />
+            <motion.div variants={fadeIn} className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
+              <Button asChild size="lg" className="group rounded-full shadow-md hover:shadow-primary/20 transition-all">
+                <a href="#journey">
+                  See My Journey
+                  <ArrowDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-0.5" />
+                </a>
+              </Button>
+              <Button variant="outline" size="lg" asChild className="rounded-full shadow-sm">
+                <a href="#contact">Get in Touch</a>
+              </Button>
+            </motion.div>
+
+            <motion.div variants={fadeIn} className="mt-10 flex items-center justify-center lg:justify-start gap-1">
+              <a
+                href="https://github.com/nknick99"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="rounded-lg p-3 text-muted-foreground transition-all hover:bg-secondary hover:text-foreground hover:scale-110"
+              >
+                <Github className="h-5 w-5" />
               </a>
-            </Button>
-            <Button variant="outline" size="lg" asChild>
-              <a href="#contact">Get in Touch</a>
-            </Button>
+              <a
+                href="https://www.linkedin.com/in/nikhilkudache/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="rounded-lg p-3 text-muted-foreground transition-all hover:bg-secondary hover:text-foreground hover:scale-110"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a
+                href="mailto:kudache@usc.edu"
+                aria-label="Email"
+                className="rounded-lg p-3 text-muted-foreground transition-all hover:bg-secondary hover:text-foreground hover:scale-110"
+              >
+                <Mail className="h-5 w-5" />
+              </a>
+              <a
+                href="https://drive.google.com/file/d/1hL8gGigZfIz_dytGitAYVKFSxq96-9pN/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Resume"
+                className="rounded-lg p-3 text-muted-foreground transition-all hover:bg-secondary hover:text-foreground hover:scale-110"
+              >
+                <FileText className="h-5 w-5" />
+              </a>
+            </motion.div>
           </div>
 
-          <div className="mt-10 flex items-center justify-center gap-1">
-            <a
-              href="https://github.com/nknick99"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              className="rounded-lg p-3 text-muted-foreground transition-all hover:bg-secondary hover:text-foreground"
+          {/* Right Column: Portrait */}
+          <motion.div 
+            variants={fadeIn} 
+            className="lg:col-span-2 flex justify-center lg:justify-end mt-12 lg:mt-0"
+          >
+            <motion.div
+              animate={{
+                y: [-10, 10, -10],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="relative aspect-square w-48 sm:w-56 md:w-64 lg:w-72 max-w-[280px]"
             >
-              <Github className="h-5 w-5" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/nikhilkudache/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="rounded-lg p-3 text-muted-foreground transition-all hover:bg-secondary hover:text-foreground"
-            >
-              <Linkedin className="h-5 w-5" />
-            </a>
-            <a
-              href="mailto:kudache@usc.edu"
-              aria-label="Email"
-              className="rounded-lg p-3 text-muted-foreground transition-all hover:bg-secondary hover:text-foreground"
-            >
-              <Mail className="h-5 w-5" />
-            </a>
-            <a
-              href="https://drive.google.com/file/d/1hL8gGigZfIz_dytGitAYVKFSxq96-9pN/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Resume"
-              className="rounded-lg p-3 text-muted-foreground transition-all hover:bg-secondary hover:text-foreground"
-            >
-              <FileText className="h-5 w-5" />
-            </a>
-          </div>
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-primary/30 to-cyan-400/30 blur-2xl transform rotate-6" />
+              <div className="absolute inset-0 rounded-3xl border border-border bg-card shadow-2xl overflow-hidden z-10">
+                <Image
+                  src="/images/portrait.jpg"
+                  alt="Nikhil Kudache"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              
+              {/* Floating decorative elements */}
+              <motion.div 
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                className="absolute -top-4 -right-4 h-16 w-16 rounded-full border border-primary/20 border-dashed z-0"
+              />
+              <div className="absolute -bottom-3 -left-3 h-10 w-10 rounded-lg bg-primary/10 backdrop-blur-md border border-primary/20 z-20 flex items-center justify-center">
+                <span className="font-mono text-[10px] font-bold text-primary">{'</>'}</span>
+              </div>
+            </motion.div>
+          </motion.div>
+          
         </div>
-      </div>
+      </motion.div>
 
-      {/* Scroll indicator - hidden on mobile to prevent overlap with social icons */}
-      <div className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 md:block">
+      {/* Scroll indicator */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2, duration: 1 }}
+        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 md:block z-10"
+      >
         <div className="flex h-8 w-5 items-start justify-center rounded-full border-2 border-muted-foreground/30 p-1">
-          <div className="h-2 w-1 animate-bounce rounded-full bg-muted-foreground/50" />
+          <div className="h-2 w-1 animate-bounce rounded-full bg-primary/50" />
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }
