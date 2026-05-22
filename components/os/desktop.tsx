@@ -3,9 +3,9 @@
 import { useState, useRef, useEffect } from "react"
 import Image from "next/image"
 import { Window } from "./window"
-import { Dock, AppId } from "./dock"
+import { Dock, AppId, DOCK_APPS } from "./dock"
 import { motion, AnimatePresence } from "framer-motion"
-import { Wifi, WifiOff, Battery, BatteryFull, BatteryMedium, BatteryLow, Search, Command, FileText, X, Database, Server } from "lucide-react"
+import { Wifi, WifiOff, Battery, BatteryFull, BatteryMedium, BatteryLow, Search, Command, FileText, X, Database, Server, Terminal } from "lucide-react"
 
 // We will map AppIds to their React Components later
 import { AppTerminal } from "./apps/app-terminal"
@@ -29,6 +29,7 @@ const initialApps: AppState[] = [
   { id: "experience", title: "Finder - Experience", isOpen: false, isMinimized: false, zIndex: 0, Component: AppFinder, defaultSize: { width: 800, height: 600 } },
   { id: "projects", title: "Safari - Projects", isOpen: false, isMinimized: false, zIndex: 0, Component: AppSafari, defaultSize: { width: 900, height: 650 } },
   { id: "skills", title: "Capabilities", isOpen: false, isMinimized: false, zIndex: 0, Component: AppSettings, defaultSize: { width: 600, height: 500 } },
+  { id: "homelab", title: "Home Lab Network", isOpen: false, isMinimized: false, zIndex: 0, Component: AppHomelab, defaultSize: { width: 800, height: 500 } },
 ]
 
 export function Desktop() {
@@ -344,6 +345,52 @@ export function Desktop() {
           }}
         />
         
+        {/* Desktop Icons */}
+        <div className="absolute top-12 left-4 right-4 sm:left-auto sm:right-4 bottom-24 z-[5000] flex flex-row flex-wrap sm:flex-col gap-4 sm:gap-6 items-start sm:items-end justify-start content-start pointer-events-none">
+          {/* Terminal App */}
+          <div 
+            className="flex flex-col items-center gap-1.5 w-20 cursor-pointer group pointer-events-auto"
+            onDoubleClick={() => handleLaunchApp('about')}
+          >
+            <div className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg transition-transform duration-200 group-hover:scale-105 border border-white/20 bg-gray-800 text-green-400">
+              <Terminal className="h-7 w-7" />
+            </div>
+            <span className="text-white text-xs font-medium text-center drop-shadow-md bg-black/20 px-1.5 py-0.5 rounded backdrop-blur-sm line-clamp-2">
+              Terminal
+            </span>
+          </div>
+
+          {/* Portainer Link */}
+          <a 
+            href="https://docker.nikhilkudache.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col items-center gap-1.5 w-20 cursor-pointer group pointer-events-auto hover:no-underline"
+          >
+            <div className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg transition-transform duration-200 group-hover:scale-105 border border-white/20 bg-blue-500 text-white">
+              <Database className="h-7 w-7" />
+            </div>
+            <span className="text-white text-xs font-medium text-center drop-shadow-md bg-black/20 px-1.5 py-0.5 rounded backdrop-blur-sm line-clamp-2">
+              Portainer
+            </span>
+          </a>
+
+          {/* MinIO Link */}
+          <a 
+            href="https://s3.nikhilkudache.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col items-center gap-1.5 w-20 cursor-pointer group pointer-events-auto hover:no-underline"
+          >
+            <div className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg transition-transform duration-200 group-hover:scale-105 border border-white/20 bg-red-500 text-white">
+              <Server className="h-7 w-7" />
+            </div>
+            <span className="text-white text-xs font-medium text-center drop-shadow-md bg-black/20 px-1.5 py-0.5 rounded backdrop-blur-sm line-clamp-2">
+              MinIO
+            </span>
+          </a>
+        </div>
+
         {/* Floating glowing orbs */}
         <motion.div 
           animate={{ 

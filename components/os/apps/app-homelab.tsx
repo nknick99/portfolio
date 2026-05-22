@@ -1,4 +1,4 @@
-import { Server, ExternalLink, HardDrive, Cpu, Activity, Network } from "lucide-react"
+import { Server, ExternalLink, HardDrive, Cpu, Activity, Network, Database } from "lucide-react"
 
 export function AppHomelab() {
   return (

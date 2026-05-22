@@ -1,9 +1,9 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Terminal, Folder, Globe, Settings, Mail, Github, Linkedin } from "lucide-react"
+import { Terminal, Folder, Globe, Settings, Mail, Github, Linkedin, Server } from "lucide-react"
 
-export type AppId = "about" | "experience" | "projects" | "skills" | "contact"
+export type AppId = "about" | "experience" | "projects" | "skills" | "homelab" | "contact"
 
 interface DockProps {
   openApps: string[]
@@ -11,11 +11,12 @@ interface DockProps {
   onLaunchApp: (id: AppId) => void
 }
 
-const apps = [
+export const DOCK_APPS = [
   { id: "about", icon: Terminal, name: "Terminal", color: "bg-gray-800 text-green-400" },
   { id: "experience", icon: Folder, name: "Finder", color: "bg-blue-500 text-white" },
   { id: "projects", icon: Globe, name: "Safari", color: "bg-blue-400 text-white" },
   { id: "skills", icon: Settings, name: "Settings", color: "bg-slate-600 text-white" },
+  { id: "homelab", icon: Server, name: "Home Lab", color: "bg-purple-500 text-white" },
   { id: "contact", icon: Mail, name: "Mail", color: "bg-sky-500 text-white" },
 ]
 
@@ -23,7 +24,7 @@ export function Dock({ openApps, activeApp, onLaunchApp }: DockProps) {
   return (
     <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[9999]">
       <div className="flex items-end gap-2 rounded-2xl border border-white/10 bg-white/10 p-2 backdrop-blur-xl shadow-2xl">
-        {apps.map((app) => {
+        {DOCK_APPS.map((app) => {
           const isOpen = openApps.includes(app.id)
           const isActive = activeApp === app.id
 

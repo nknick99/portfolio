@@ -118,7 +118,7 @@ export function AppSettings() {
           {activeTab === 'skills' && (
             <>
               <h1 className="text-2xl sm:text-3xl font-bold mb-2">Technical Skills</h1>
-              <p className="text-sm sm:text-base text-zinc-400 mb-6 sm:mb-8 pb-4 sm:pb-6 border-b border-white/10">Raw technology proficiencies mapped from the resume.</p>
+              <p className="text-sm sm:text-base text-zinc-400 mb-6 sm:mb-8 pb-4 sm:pb-6 border-b border-white/10">Comprehensive overview of technical capabilities and specialized tools.</p>
               
               <div className="space-y-4">
                 {rawSkills.map((skill, idx) => (
