@@ -6,7 +6,7 @@ services:
     container_name: nikhil-portfolio-os
     restart: always
     ports:
-      - "3001:3000"
+      - "3096:3000"
     environment:
       - NODE_ENV=production
       - PORT=3000
