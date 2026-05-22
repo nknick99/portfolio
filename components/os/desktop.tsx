@@ -180,7 +180,7 @@ export function Desktop() {
       {/* About OS Modal */}
       <AnimatePresence>
         {showAboutModal && (
-          <div className="absolute inset-0 z-[20000] flex items-center justify-center bg-black/40 backdrop-blur-sm p-4" onClick={() => { setShowAboutModal(false); setIsAboutExpanded(false); }}>
+          <div className="absolute top-7 bottom-0 left-0 right-0 z-[20000] flex items-center justify-center bg-black/40 backdrop-blur-sm p-4" onClick={() => { setShowAboutModal(false); setIsAboutExpanded(false); }}>
             <motion.div 
               layout
               initial={{ opacity: 0, scale: 0.95, y: 10 }}
@@ -209,7 +209,7 @@ export function Desktop() {
                   <h2 className="text-xl font-bold text-white mb-1">Nikhil OS</h2>
                   <p className="text-xs text-white/50 mb-4">Version 1.0.0</p>
                     <div className="text-sm text-zinc-300 space-y-2">
-                      <p><strong>Cloud Infrastructure Analyst</strong></p>
+                      <p><strong>Software Engineer</strong></p>
                       <p>Strengths: Backend Systems, Cloud Infrastructure, Full-Stack Applications.</p>
                     </div>
                   <div className="flex gap-2 mt-6">
@@ -245,9 +245,9 @@ export function Desktop() {
                     </div>
                     <div>
                       <h1 className="text-4xl font-bold text-white mb-2">Nikhil Kudache</h1>
-                      <h2 className="text-xl text-blue-400 mb-4">Cloud Infrastructure Analyst & Systems Architect</h2>
+                      <h2 className="text-xl text-blue-400 mb-4">Software Engineer & Systems Architect</h2>
                       <p className="text-zinc-300 leading-relaxed max-w-2xl">
-                        I am a Cloud Infrastructure Analyst specializing in scalable backend systems, cloud infrastructure, and full-stack applications. With a foundation built during my MSCS at the University of Southern California (Aug 2024 - May 2026) and practical experience engineering high-impact solutions at Deloitte (Jan 2023 - Jul 2025), I bridge the gap between complex architectural design and intuitive user experiences.
+                        I am a software engineer specializing in scalable backend systems, cloud infrastructure, and full-stack applications. With a foundation built during my MSCS at the University of Southern California (Aug 2025 - May 2027) and practical experience engineering high-impact solutions at Deloitte (Jan 2023 - Jul 2025), I bridge the gap between complex architectural design and intuitive user experiences.
                       </p>
                     </div>
                   </div>
@@ -302,7 +302,7 @@ export function Desktop() {
                       <div className="mt-8 p-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl border border-white/10">
                         <h4 className="text-white font-bold mb-2">Education Protocol</h4>
                         <p className="text-sm text-white/80">MS in Computer Science</p>
-                        <p className="text-xs text-white/50 mb-4">University of Southern California (2024 - 2026)</p>
+                        <p className="text-xs text-white/50 mb-4">University of Southern California (2025 - 2027)</p>
                         
                         <a 
                           href="/resume.pdf" 
@@ -361,7 +361,7 @@ export function Desktop() {
             className="relative px-3 py-1 cursor-default hover:bg-white/20 rounded transition-colors"
             onClick={() => setActiveMenu(activeMenu === 'apple' ? null : 'apple')}
           >
-            <span className="font-bold text-sm"></span>
+            <span className="font-bold text-sm">N</span>
             <AnimatePresence>
               {activeMenu === 'apple' && (
                 <motion.div 
@@ -371,7 +371,6 @@ export function Desktop() {
                   <div className="px-3 py-1 hover:bg-blue-500 cursor-default" onClick={() => { setShowAboutModal(true); setActiveMenu(null); }}>About Me</div>
                   <div className="h-px bg-white/10 my-1"></div>
                   <div className="px-3 py-1 hover:bg-blue-500 cursor-default" onClick={() => window.location.reload()}>Restart...</div>
-                  <div className="px-3 py-1 hover:bg-blue-500 cursor-default text-zinc-400">Shut Down...</div>
                 </motion.div>
               )}
             </AnimatePresence>

@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 
 const codeSnippet = `nikhil@macbook-pro ~ % cat about.py
 nikhil = {
-    "role": "Cloud Infrastructure Analyst",
+    "role": "Software Engineer",
     "education": "MSCS @ USC (2025-2027)",
     "experience": "Deloitte (2023-2025)",
     "strengths": ["Systems", "Backend", "Cloud"],
@@ -65,7 +65,7 @@ export function AppTerminal() {
         )
         break;
       case "whoami":
-        output = <div className="text-zinc-300">Nikhil Kudache - Cloud Infrastructure Analyst studying MSCS at USC (2025-2027). Passionate about building robust systems.</div>
+        output = <div className="text-zinc-300">Nikhil Kudache - Software Engineer studying MSCS at USC (2025-2027). Passionate about building robust systems.</div>
         break;
       case "contact":
         output = <div className="text-zinc-300">Email: nikhilkudache@gmail.com (or via LinkedIn)</div>
