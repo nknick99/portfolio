@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   portfolio-os:
-    image: nknick99/portfolio:v2.0-os
+    build: .
     container_name: nikhil-portfolio-os
     restart: always
     ports:
