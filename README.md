@@ -1,8 +1,8 @@
-# nikhilkudache.dev — macOS-Inspired Portfolio
+# os.nikhilkudache.dev — macOS-Inspired Portfolio
 
 A fully interactive portfolio website designed as a macOS desktop environment. Instead of scrolling through sections, visitors interact with draggable windows, a dock, a menu bar, and Spotlight search — just like using a Mac.
 
-**Live:** [nikhilkudache.dev](https://nikhilkudache.dev)
+**Live:** [os.nikhilkudache.dev](https://os.nikhilkudache.dev)
 
 ---
 
