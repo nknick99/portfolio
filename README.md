@@ -86,17 +86,14 @@ npm start
 
 ## Deployment
 
-The site is containerized and self-hosted on a Raspberry Pi 5:
+The site is containerized and self-hosted on a Raspberry Pi 5 running Portainer CE:
 
-```bash
-# Cross-compile for ARM64
-docker buildx build --platform linux/arm64 -t portfolio:latest .
+1. Portainer pulls this Git repo directly on the Pi
+2. The image is built natively on ARM64 using the multi-stage Dockerfile
+3. The container runs on port `3096` → mapped to internal `3000`
+4. A Cloudflare Zero-Trust Tunnel routes `nikhilkudache.dev` to the container — no ports exposed on the local network
 
-# Deploy via docker-compose on the Pi
-docker compose up -d
-```
-
-Traffic routes through a Cloudflare Tunnel — no ports exposed on the local network.
+To redeploy after pushing changes, just trigger a stack update in Portainer (or enable webhook-based auto-deploy).
 
 ---
 
