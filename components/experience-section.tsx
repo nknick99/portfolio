@@ -56,7 +56,7 @@ const experiences: Experience[] = [
     tags: ["DNS", "BIND9", "Network Systems"],
   },
   {
-    role: "Analyst - Cloud Infrastructure",
+    role: "Security Engineer - Cloud Infrastructure",
     company: "Deloitte USI",
     location: "Hyderabad, India",
     period: "Jan 2023 - Jul 2025",

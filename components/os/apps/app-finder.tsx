@@ -107,7 +107,7 @@ export function AppFinder() {
                   <div className="flex items-center gap-3">
                     <FileText className="h-8 w-8 text-purple-400" />
                     <div>
-                      <h3 className="font-bold text-lg">Analyst - Cloud Infrastructure</h3>
+                      <h3 className="font-bold text-lg">Security Engineer - Cloud Infrastructure</h3>
                       <p className="text-sm text-purple-300">Deloitte USI</p>
                     </div>
                   </div>

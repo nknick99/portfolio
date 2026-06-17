@@ -267,7 +267,7 @@ export function Desktop() {
                           <p className="text-sm text-zinc-400">Architected backend systems, secure APIs, and database structures for medical digital twin and transdisciplinary learning platforms.</p>
                         </div>
                         <div className="bg-white/5 rounded-xl p-4 border border-white/5">
-                          <h4 className="text-white font-bold">Cloud Infrastructure Analyst</h4>
+                          <h4 className="text-white font-bold">Security Engineer - Cloud Infrastructure</h4>
                           <p className="text-xs text-blue-400 mb-2">Deloitte • Jan 2023 - Jul 2025</p>
                           <p className="text-sm text-zinc-400">Engineered Python automation tools connecting Prisma Cloud and Jira, clearing backlogs to save 20 hours/week. Developed reusable Terraform modules for AWS networking and integrated Checkov security scanning into Jenkins CI/CD pipelines.</p>
                         </div>
