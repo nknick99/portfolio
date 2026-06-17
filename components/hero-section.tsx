@@ -168,7 +168,7 @@ export function HeroSection() {
                 <Mail className="h-5 w-5" />
               </a>
               <a
-                href="https://drive.google.com/file/d/1hL8gGigZfIz_dytGitAYVKFSxq96-9pN/view?usp=sharing"
+                href="https://drive.google.com/file/d/10e3V7zqg84QjlAvLR4dxUmVzp5Ol3fhe/view?usp=drive_link"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Resume"
